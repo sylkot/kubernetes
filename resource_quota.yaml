@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata: 
+  name: test-resource-quota
+spec:
+  hard:
+    pods: 50

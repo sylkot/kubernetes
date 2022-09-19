@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db-pod
+spec:
+  containers:
+  - image: mysql:5.7
+    name: mysql
+    envFrom:
+      - configMapRef:
+          name: db-config
+    volumeMounts:
+    - mountPath: /var/lib/mysql
+      name: db-vol
+  volumes:
+  - name: db-vol
+    hostPath:
+      path: /data
+      type: DirectoryOrCreate
